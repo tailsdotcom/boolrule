@@ -36,7 +36,7 @@ setup(
     zip_safe=False,
     keywords='boolrule boolean expression',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -46,6 +46,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Topic :: Text Processing :: General',
     ],
     setup_requires=['pytest-runner'],
     test_suite='tests',
