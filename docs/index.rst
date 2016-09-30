@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to boolrule's documentation!
-======================================
+Welcome to boolrule's documentation
+===================================
 
 boolrule is a simpe boolean expression evaluation engine.
 
@@ -20,6 +20,7 @@ Contents:
    readme
    installation
    usage
+   api
    expressions
    contributing
    authors

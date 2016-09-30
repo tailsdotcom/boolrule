@@ -95,21 +95,18 @@ class BoolRule(object):
     """
     Represents a boolean expression and provides a `test` method to evaluate
     the expression and determine its truthiness.
+
+    :param query: A string containing the query to be evaluated
+    :param lazy: If ``True``, parse the query the first time it's tested rather
+                 than immediately. This can help with performance if you
+                 instantiate a lot of rules and only end up evaluating a
+                 small handful.
     """
     _compiled = False
     _tokens = None
     _query = None
 
     def __init__(self, query, lazy=False):
-        """
-        Create a new BoolRule from the given query.
-
-        :param query: A string containing the query to be evaluated
-        :param lazy: If True, parse the query the first time it's tested rather
-                     than immediately. This can help with performance if you
-                     instantiate a lot of rules and only end up evaluating a
-                     small handful.
-        """
         self._query = query
         if not lazy:
             self._compile()
