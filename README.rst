@@ -6,15 +6,15 @@ boolrule
 .. image:: https://img.shields.io/pypi/v/boolrule.svg
         :target: https://pypi.python.org/pypi/boolrule
 
-.. image:: https://img.shields.io/travis/spjwebster/boolrule.svg
-        :target: https://travis-ci.org/spjwebster/boolrule
+.. image:: https://img.shields.io/travis/tailsdotcom/boolrule.svg
+        :target: https://travis-ci.org/tailsdotcom/boolrule
 
 .. image:: https://readthedocs.org/projects/boolrule/badge/?version=latest
         :target: https://boolrule.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/spjwebster/boolrule/shield.svg
-     :target: https://pyup.io/repos/github/spjwebster/boolrule/
+.. image:: https://pyup.io/repos/github/tailsdotcom/boolrule/shield.svg
+     :target: https://pyup.io/repos/github/tailsdotcom/boolrule/
      :alt: Updates
 
 

@@ -2,7 +2,7 @@
 deploy:
   true:
     condition: $TOXENV == py27
-    repo: spjwebster/boolrule
+    repo: tailsdotcom/boolrule
     tags: true
   distributions: sdist bdist_wheel
   password:
