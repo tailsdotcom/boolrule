@@ -6,16 +6,24 @@
 Welcome to boolrule's documentation!
 ======================================
 
+boolrule is a simpe boolean expression evaluation engine.
+
+boolrule was built by the team at tails.com_ to evaluate conditional edges
+between nodes in a graph-like structure, though we've found numerous uses for
+it since.
+
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    readme
    installation
    usage
+   expressions
    contributing
-   authorshistory
+   authors
+   history
 
 Indices and tables
 ==================
@@ -23,3 +31,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. _tails.com: https://tails.com
