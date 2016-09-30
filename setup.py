@@ -14,6 +14,7 @@ requirements = [
 ]
 
 test_requirements = [
+    'pytest'
 ]
 
 setup(
@@ -46,6 +47,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    test_suite='pytest',
+    setup_requires=['pytest-runner'],
+    test_suite='tests',
     tests_require=test_requirements
 )
