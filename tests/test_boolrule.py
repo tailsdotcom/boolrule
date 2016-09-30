@@ -12,7 +12,7 @@ from boolrule import BoolRule, MissingVariableException
 ])
 def test_simple_comparisons(s, expected):
     boolrule = BoolRule(s)
-    assert boolrule.test({}) == expected
+    assert boolrule.test() == expected
 
 
 @pytest.mark.parametrize('s,expected', [
@@ -22,7 +22,7 @@ def test_simple_comparisons(s, expected):
 ])
 def test_logical_combinations(s, expected):
     boolrule = BoolRule(s)
-    assert boolrule.test({}) == expected
+    assert boolrule.test() == expected
 
 
 @pytest.mark.parametrize('s,expected', [
@@ -31,7 +31,7 @@ def test_logical_combinations(s, expected):
 ])
 def test_nested_logical_combinations(s, expected):
     boolrule = BoolRule(s)
-    assert boolrule.test({}) == expected
+    assert boolrule.test() == expected
 
 
 
@@ -56,6 +56,7 @@ def test_list_membership(s, context, expected):
 
 
 @pytest.mark.parametrize('s,context', [
+    ('foo < bar', None),
     ('foo < bar', {}),
     ('foo < bar', {'foo': 5}),
 ])

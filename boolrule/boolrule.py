@@ -13,6 +13,11 @@ class SubstituteVal(object):
         self._path = t[0]
 
     def get_val(self, context):
+        if not context:
+            raise MissingVariableException(
+                'context missing or empty'
+            )
+
         val = context
 
         try:
@@ -109,7 +114,7 @@ class BoolRule(object):
         if not lazy:
             self._compile()
 
-    def test(self, context):
+    def test(self, context=None):
         """
         Test the expression against the given context and return the result.
 
