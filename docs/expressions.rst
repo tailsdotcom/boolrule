@@ -76,9 +76,13 @@ Membership operators
 Operator                 Description               Example
 =======================  ========================  =========================
 ``in``                   Is a member of            ``foo in ("a","b","c")``
-``notin``                Is not a member of        ``bar == 5 or bar < 10``
+``notin``                Is not a member of        ``foo not in ("a","b")``
 =======================  ========================  =========================
 
 
-Nexted expressions
+Nested expressions
 ==================
+
+You can use parentheses to next expressions::
+
+ foo > 5 and (10 < bar or bar > 20)

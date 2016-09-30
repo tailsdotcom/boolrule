@@ -26,7 +26,7 @@ Simple boolean expression evaluation engine.
 Features
 ========
 
-Compare simple boolean statements:
+Compare simple boolean statements::
 
  >>> rule = BoolRule('5 > 3')
  >>> rule.test()
@@ -36,7 +36,7 @@ Compare simple boolean statements:
  False
 
 
-Evaluate boolean statements against a context dict:
+Evaluate boolean statements against a context dict::
 
  >>> can_buy_beer = BoolRule('user.age_years >= 18')
  >>> can_buy_beer.test({'user':{'age_years': 12}})
@@ -44,7 +44,7 @@ Evaluate boolean statements against a context dict:
  >>> can_buy_beer.test({'user':{'age_years': 20}})
  True
 
-Combine conditions with and and or operators to produce complex expressions:
+Combine conditions with and and or operators to produce complex expressions::
 
  >>> is_hipster = BoolRule('address.postcode.outcode in ('E1','E2') or user.has_beard = true')
  >>> address = {
