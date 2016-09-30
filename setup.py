@@ -23,7 +23,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author="Steve Webster",
     author_email='spjwebster@gmail.com',
-    url='https://github.com/spjwebster/boolrule',
+    url='https://github.com/tailsdotcom/boolrule',
     packages=[
         'boolrule',
     ],
