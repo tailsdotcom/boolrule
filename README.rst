@@ -46,7 +46,7 @@ Evaluate boolean statements against a context dict::
 
 Combine conditions with and and or operators to produce complex expressions::
 
- >>> is_hipster = BoolRule('address.postcode.outcode in ('E1','E2') or user.has_beard = true')
+ >>> is_hipster = BoolRule('address.postcode.outcode in ("E1","E2") or user.has_beard = true')
  >>> address = {
  >>>   'postcode': {
  >>>      'outcode': 'E1'
