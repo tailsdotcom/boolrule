@@ -21,7 +21,7 @@ class SubstituteVal(object):
         val = context
 
         try:
-            for part in reversed(self._path.split(pathDelimiter)):
+            for part in self._path.split(pathDelimiter):
                 val = getattr(val, part) if hasattr(val, part) else val[part]
 
         except KeyError:
