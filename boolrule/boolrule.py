@@ -172,8 +172,6 @@ class BoolRule(object):
 
             items = token.asDict()
 
-            print items
-
             operator = items['operator']
             lval = self._expand_val(items['lval'][0], context)
             rval = self._expand_val(items['rval'][0], context)
