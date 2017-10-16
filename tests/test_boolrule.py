@@ -8,7 +8,9 @@ from boolrule import BoolRule, MissingVariableException
 
 @pytest.mark.parametrize('s,expected', [
     ('5 > 3', True),
-    ('5 < 3', False)
+    ('5 < 3', False),
+    ('7 == true', False),
+    ('true == true', True),
 ])
 def test_simple_comparisons(s, expected):
     boolrule = BoolRule(s)
@@ -79,3 +81,4 @@ def test_missing_vars_raises_exception(s, context):
 #     with self.assertRaises(ParseException):
 #         rule = BoolRule(query[0])
 #         rule.test(query[1])
+

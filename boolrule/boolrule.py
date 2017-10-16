@@ -67,7 +67,7 @@ integer = Combine(
 )
 
 str_ = quotedString.addParseAction(removeQuotes)
-bool_ = oneOf('true false', caseless=True)('bool')
+bool_ = oneOf('true false', caseless=True)
 
 
 simpleVals = (
@@ -171,6 +171,8 @@ class BoolRule(object):
                 return self._test_tokens(token, context)
 
             items = token.asDict()
+
+            print items
 
             operator = items['operator']
             lval = self._expand_val(items['lval'][0], context)
