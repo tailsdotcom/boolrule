@@ -11,6 +11,7 @@ from boolrule import BoolRule, MissingVariableException
     ('5 < 3', False),
     ('7 == true', False),
     ('true == true', True),
+    ('None is None', True),
 ])
 def test_simple_comparisons(s, expected):
     boolrule = BoolRule(s)
@@ -42,6 +43,9 @@ def test_nested_logical_combinations(s, expected):
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 9}, False),
     ('foo = "bar" AND ("a" = "b" OR baz > 10)', {'foo': 'bar', 'baz': 11}, True),
     ('foo.bar = "bar"', {'foo': {'bar': 'bar'}}, True),
+    ('foo.bar isnot none', {'foo': {'bar': 4}}, True),
+    ('foo.bar is none', {'foo': {'bar': 4}}, False),
+    ('foo.bar is none', {'foo': {'bar': None}}, True),
 ])
 def test_subsitution_values(s, context, expected):
     boolrule = BoolRule(s)

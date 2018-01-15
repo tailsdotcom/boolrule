@@ -48,7 +48,7 @@ lparen = Suppress('(')
 rparen = Suppress(')')
 
 binaryOp = oneOf(
-    "= == != < > >= <= eq ne lt le gt ge in notin", caseless=True
+    "= == != < > >= <= eq ne lt le gt ge in notin is isnot", caseless=True
 )('operator')
 
 E = CaselessLiteral("E")
@@ -68,13 +68,14 @@ integer = Combine(
 
 str_ = quotedString.addParseAction(removeQuotes)
 bool_ = oneOf('true false', caseless=True)
-
+none_ = CaselessLiteral('none')
 
 simpleVals = (
     realNumber.setParseAction(lambda toks: float(toks[0]))
     | integer.setParseAction(lambda toks: int(toks[0]))
     | str_
     | bool_.setParseAction(lambda toks: toks[0] == 'true')
+    | none_.setParseAction(lambda toks: [None])  # see pyparsing bug 63
     | propertyPath.setParseAction(lambda toks: SubstituteVal(toks))
 )  # need to add support for alg expressions
 
@@ -159,7 +160,6 @@ class BoolRule(object):
         passed = False
 
         for token in tokens:
-
             if not isinstance(token, ParseResults):
                 if token == 'or' and passed:
                     return True
@@ -192,6 +192,10 @@ class BoolRule(object):
                 passed = lval in rval
             elif operator == 'notin':
                 passed = lval not in rval
+            elif operator == 'is':
+                passed = lval is rval
+            elif operator == 'isnot':
+                passed = lval is not rval
             else:
                 raise UnknownOperatorException(
                     "Unknown operator '{}'".format(operator)
