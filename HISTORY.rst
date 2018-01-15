@@ -2,11 +2,18 @@
 History
 =======
 
+0.3.0 (2018-01-15)
+------------------
+
+* Add None type and is/isnot operators (contributed by ocurero)
+
+
 0.2.0 (2016-10-27)
 ------------------
 
 * Fixed error caused by refactor from internal codebase that was preventing deep context level values from being
   referenced in a substitution value
+
 
 0.1.2 (2016-09-30)
 ------------------
