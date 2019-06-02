@@ -8,4 +8,4 @@ coverage==4.5.3
 Sphinx==2.1.0
 cryptography==2.7
 PyYAML==5.1
-pytest==4.6.0
+pytest==4.6.1
