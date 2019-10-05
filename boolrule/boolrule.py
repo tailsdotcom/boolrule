@@ -48,7 +48,7 @@ lparen = Suppress('(')
 rparen = Suppress(')')
 
 binaryOp = oneOf(
-    "= == != < > >= <= eq ne lt le gt ge in notin is isnot", caseless=True
+    "= == != < > >= <= eq ne lt le gt ge in notin is isnot ≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩", caseless=True
 )('operator')
 
 E = CaselessLiteral("E")
@@ -178,24 +178,30 @@ class BoolRule(object):
 
             if operator in ('=', '==', 'eq'):
                 passed = lval == rval
-            elif operator in ('!=', 'ne'):
+            elif operator in ('!=', 'ne', '≠'):
                 passed = lval != rval
             elif operator in ('>', 'gt'):
                 passed = lval > rval
-            elif operator in ('>=', 'ge'):
+            elif operator in ('>=', 'ge', '≥'):
                 passed = lval >= rval
             elif operator in ('<', 'lt'):
                 passed = lval < rval
-            elif operator in ('<=', 'le'):
+            elif operator in ('<=', 'le', '≤'):
                 passed = lval <= rval
-            elif operator == 'in':
+            elif operator in ('in', '∈'):
                 passed = lval in rval
-            elif operator == 'notin':
+            elif operator in ('notin', '∉'):
                 passed = lval not in rval
             elif operator == 'is':
                 passed = lval is rval
             elif operator == 'isnot':
                 passed = lval is not rval
+            elif operator == '⊆':
+                passed = all((False for x in lval if x not in rval))
+            elif operator == '⊇':
+                passed = all((False for x in rval if x not in lval))
+            elif operator == '∩':
+                passed = any((True for x in lval if x in rval))
             else:
                 raise UnknownOperatorException(
                     "Unknown operator '{}'".format(operator)

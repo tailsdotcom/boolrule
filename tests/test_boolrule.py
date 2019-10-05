@@ -9,9 +9,26 @@ from boolrule import BoolRule, MissingVariableException
 @pytest.mark.parametrize('s,expected', [
     ('5 > 3', True),
     ('5 < 3', False),
+    ('5 > 5', False),
+    ('3 >= 5', False),
+    ('5 >= 3', True),
+    ('5 >= 5', True),
+    ('5 <= 3', False),
+    ('3 <= 5', True),
+    ('3 <= 5', True),
+    ('5 ≥ 3', True),
+    ('5 ≥ 5', True),
+    ('3 ≤ 3', True),
+    ('3 ≤ 5', True),
     ('7 == true', False),
     ('true == true', True),
     ('None is None', True),
+    ('1 != 2', True),
+    ('1 != 1', False),
+    ('2 != true', True),
+    ('1 ≠ 2', True),
+    ('1 ≠ 1', False),
+    ('2 ≠ true', True),
 ])
 def test_simple_comparisons(s, expected):
     boolrule = BoolRule(s)
@@ -56,10 +73,39 @@ def test_subsitution_values(s, context, expected):
     ('x in (5, 6, 7)', {'x': 5}, True),
     ('x in (5, 6, 7)', {'x': 8}, False),
     ('x in (5, 6, 7, y)', {'x': 99, 'y': 99}, True),
+    ('x ∈ (5, 6, 7)', {'x': 5}, True),
+    ('x ∈ (5, 6, 7)', {'x': 8}, False),
+    ('x ∈ (5, 6, 7, y)', {'x': 99, 'y': 99}, True),
+    ('x ∉ (5, 6, 7)', {'x': 5}, False),
+    ('x ∉ (5, 6, 7)', {'x': 8}, True),
+    ('x ∉ (5, 6, 7, y)', {'x': 99, 'y': 99}, False),
 ])
 def test_list_membership(s, context, expected):
     boolrule = BoolRule(s)
     assert boolrule.test(context) == expected
+
+
+@pytest.mark.parametrize('s,expected', [
+    ('(1, 2, 3) ⊆ (1, 2, 3)', True),
+    ('(1, 2, 3) ⊇ (1, 2, 3)', True),
+    ('(1, 2, 3) ⊆ (1, 2, 3, 4)', True),
+    ('(1, 2, 3, 4) ⊇ (1, 2, 3)', True),
+    ('(1, 2, 3) ⊆ (1, 2)', False),
+    ('(1, 2) ⊇ (1, 2, 3)', False),
+])
+def test_subset(s, expected):
+    boolrule = BoolRule(s)
+    assert boolrule.test() == expected
+
+
+@pytest.mark.parametrize('s,expected', [
+    ('(1, 2, 3) ∩ (1, 2, 3)', True),
+    ('(4) ∩ (3, 4, 5)', True),
+    ('(1, 2, 3) ∩ (4, 5, 6)', False),
+])
+def test_intersects(s, expected):
+    boolrule = BoolRule(s)
+    assert boolrule.test() == expected
 
 
 @pytest.mark.parametrize('s,context', [
