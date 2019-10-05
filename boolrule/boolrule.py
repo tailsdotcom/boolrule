@@ -48,7 +48,8 @@ lparen = Suppress('(')
 rparen = Suppress(')')
 
 binaryOp = oneOf(
-    "= == != < > >= <= eq ne lt le gt ge in notin is isnot ≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩", caseless=True
+    "= == != < > >= <= eq ne lt le gt ge in notin is isnot "
+    "≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩", caseless=True
 )('operator')
 
 E = CaselessLiteral("E")

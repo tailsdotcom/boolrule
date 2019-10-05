@@ -54,7 +54,6 @@ def test_nested_logical_combinations(s, expected):
     assert boolrule.test() == expected
 
 
-
 @pytest.mark.parametrize('s,context,expected', [
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 20}, True),
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 9}, False),
@@ -131,4 +130,3 @@ def test_missing_vars_raises_exception(s, context):
 #     with self.assertRaises(ParseException):
 #         rule = BoolRule(query[0])
 #         rule.test(query[1])
-
