@@ -61,21 +61,6 @@ Operator                         Description               Example
 ===============================  ========================  =====================
 
 
-Boolrule also supports extended comparison operators
-
-=======================  ========================  =====================
-Operator                 Description               Example
-=======================  ========================  =====================
-``≠``    Equality                  ``foo == 5``
-``!=``, ``!==``, ``ne``  Inequality                ``bar != 5``
-``>``, ``gt``            Greater than              ``foo > 5``
-``>=``, ``gte``          Greater than or equal to  ``foo >= 5``
-``<``, ``lt``            Less than                 ``foo < 5``
-``<=``, ``lte``          Less than or equal to     ``foo <= 5``
-``is``                   Identity                  ``foo is True``
-``isnot``                Inverse identity          ``foobar isnot True``
-=======================  ========================  =====================
-
 Logical operators
 =================
 
