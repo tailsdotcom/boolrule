@@ -68,7 +68,7 @@ Logical operators
 Operator                 Description               Example
 =======================  ========================  =========================
 ``and``                  Logical and               ``foo == 5 and bar < 10``
-``oe``                   Logical or                ``bar == 5 or bar < 10``
+``or``                   Logical or                ``bar == 5 or bar < 10``
 =======================  ========================  =========================
 
 
