@@ -47,10 +47,26 @@ that order.
 Basic comparison operators
 ==========================
 
+===============================  ========================  =====================
+Operator                         Description               Example
+===============================  ========================  =====================
+``=``, ``==``, ``eq``            Equality                  ``foo == 5``
+``!=``, ``!==``, ``ne``, ``≠``   Inequality                ``bar != 5``
+``>``, ``gt``                    Greater than              ``foo > 5``
+``>=``, ``ge``, ``≥``            Greater than or equal to  ``foo >= 5``
+``<``, ``lt``                    Less than                 ``foo < 5``
+``<=``, ``le``, ``≤``            Less than or equal to     ``foo <= 5``
+``is``                           Identity                  ``foo is True``
+``isnot``                        Inverse identity          ``foobar isnot True``
+===============================  ========================  =====================
+
+
+Boolrule also supports extended comparison operators
+
 =======================  ========================  =====================
 Operator                 Description               Example
 =======================  ========================  =====================
-``=``, ``==``, ``eq``    Equality                  ``foo == 5``
+``≠``    Equality                  ``foo == 5``
 ``!=``, ``!==``, ``ne``  Inequality                ``bar != 5``
 ``>``, ``gt``            Greater than              ``foo > 5``
 ``>=``, ``gte``          Greater than or equal to  ``foo >= 5``
@@ -59,7 +75,6 @@ Operator                 Description               Example
 ``is``                   Identity                  ``foo is True``
 ``isnot``                Inverse identity          ``foobar isnot True``
 =======================  ========================  =====================
-
 
 Logical operators
 =================
@@ -72,14 +87,17 @@ Operator                 Description               Example
 =======================  ========================  =========================
 
 
-Membership operators
+Set operators
 ====================
 
 =======================  ========================  =========================
 Operator                 Description               Example
 =======================  ========================  =========================
-``in``                   Is a member of            ``foo in ("a","b","c")``
-``notin``                Is not a member of        ``foo not in ("a","b")``
+``in``, ``∈``            Is a member of            ``foo in ("a","b","c")``
+``notin``, ``∉``         Is not a member of        ``foo not in ("a","b")``
+``⊆``                    A a subset of B           ``foo ⊆ ("a", "b", "c")``
+``⊇``                    A a superset of B         ``foo ⊇ ("a", "b")``
+``∩``                    A intersects with B       ``foo ∩ ("a", "b")``
 =======================  ========================  =========================
 
 
