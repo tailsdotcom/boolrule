@@ -80,9 +80,9 @@ Operator                 Description               Example
 =======================  ========================  =========================
 ``in``, ``∈``            Is a member of            ``foo in ("a","b","c")``
 ``notin``, ``∉``         Is not a member of        ``foo not in ("a","b")``
-``⊆``                    A a subset of B           ``foo ⊆ ("a", "b", "c")``
-``⊇``                    A a superset of B         ``foo ⊇ ("a", "b")``
-``∩``                    A intersects with B       ``foo ∩ ("a", "b")``
+``⊆``                    Is a subset of            ``foo ⊆ ("a", "b", "c")``
+``⊇``                    Is a superset of          ``foo ⊇ ("a", "b")``
+``∩``                    Intersects                ``foo ∩ ("a", "b")``
 =======================  ========================  =========================
 
 
