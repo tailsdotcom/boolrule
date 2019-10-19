@@ -47,18 +47,18 @@ that order.
 Basic comparison operators
 ==========================
 
-=======================  ========================  =====================
-Operator                 Description               Example
-=======================  ========================  =====================
-``=``, ``==``, ``eq``    Equality                  ``foo == 5``
-``!=``, ``!==``, ``ne``  Inequality                ``bar != 5``
-``>``, ``gt``            Greater than              ``foo > 5``
-``>=``, ``gte``          Greater than or equal to  ``foo >= 5``
-``<``, ``lt``            Less than                 ``foo < 5``
-``<=``, ``lte``          Less than or equal to     ``foo <= 5``
-``is``                   Identity                  ``foo is True``
-``isnot``                Inverse identity          ``foobar isnot True``
-=======================  ========================  =====================
+===============================  ========================  =====================
+Operator                         Description               Example
+===============================  ========================  =====================
+``=``, ``==``, ``eq``            Equality                  ``foo == 5``
+``!=``, ``!==``, ``ne``, ``≠``   Inequality                ``bar != 5``
+``>``, ``gt``                    Greater than              ``foo > 5``
+``>=``, ``ge``, ``≥``            Greater than or equal to  ``foo >= 5``
+``<``, ``lt``                    Less than                 ``foo < 5``
+``<=``, ``le``, ``≤``            Less than or equal to     ``foo <= 5``
+``is``                           Identity                  ``foo is True``
+``isnot``                        Inverse identity          ``foobar isnot True``
+===============================  ========================  =====================
 
 
 Logical operators
@@ -68,18 +68,21 @@ Logical operators
 Operator                 Description               Example
 =======================  ========================  =========================
 ``and``                  Logical and               ``foo == 5 and bar < 10``
-``oe``                   Logical or                ``bar == 5 or bar < 10``
+``or``                   Logical or                ``bar == 5 or bar < 10``
 =======================  ========================  =========================
 
 
-Membership operators
+Set operators
 ====================
 
 =======================  ========================  =========================
 Operator                 Description               Example
 =======================  ========================  =========================
-``in``                   Is a member of            ``foo in ("a","b","c")``
-``notin``                Is not a member of        ``foo not in ("a","b")``
+``in``, ``∈``            Is a member of            ``foo in ("a","b","c")``
+``notin``, ``∉``         Is not a member of        ``foo not in ("a","b")``
+``⊆``                    Is a subset of            ``foo ⊆ ("a", "b", "c")``
+``⊇``                    Is a superset of          ``foo ⊇ ("a", "b")``
+``∩``                    Intersects                ``foo ∩ ("a", "b")``
 =======================  ========================  =========================
 
 
