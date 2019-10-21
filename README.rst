@@ -12,9 +12,9 @@ boolrule
         :target: https://boolrule.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/tailsdotcom/boolrule/shield.svg
-     :target: https://pyup.io/repos/github/tailsdotcom/boolrule/
-     :alt: Updates
+.. image:: https://api.dependabot.com/badges/status?host=github&repo=tailsdotcom/boolrule
+     :target: https://dependabot.com
+     :alt: Dependencies
 
 
 Simple boolean expression evaluation engine.
