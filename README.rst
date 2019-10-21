@@ -5,7 +5,7 @@ boolrule
 .. image:: https://img.shields.io/pypi/v/boolrule.svg
         :target: https://pypi.python.org/pypi/boolrule
 
-.. image:: https://img.shields.io/travis/tailsdotcom/boolrule.svg
+.. image:: https://img.shields.io/travis/tailsdotcom/boolrule/master.svg
         :target: https://travis-ci.org/tailsdotcom/boolrule
 
 .. image:: https://readthedocs.org/projects/boolrule/badge/?version=latest
