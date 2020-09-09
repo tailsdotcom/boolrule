@@ -137,11 +137,7 @@ class BoolRule(object):
             if self._is_match_all():
                 return
 
-            try:
-                self._tokens = boolExpression.parseString(self._query)
-            except ParseException:
-                raise
-
+            self._tokens = boolExpression.parseString(self._query, True)
             self._compiled = True
 
     def _expand_val(self, val, context):
