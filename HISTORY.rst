@@ -2,6 +2,13 @@
 History
 =======
 
+0.3.1 (2020-09-09)
+------------------
+
+* Raise an exception when the whole expression cannot be parsed. Previous behaviour would discard the segment
+  that didn't match the expression grammar.
+
+
 0.3.0 (2018-01-15)
 ------------------
 
