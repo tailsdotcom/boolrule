@@ -69,6 +69,7 @@ def test_subsitution_values(s, context, expected):
 
 
 @pytest.mark.parametrize('s,context,expected', [
+    ('1=1 and 2 in (1, true)', {}, False),
     ('x in (5, 6, 7)', {'x': 5}, True),
     ('x in (5, 6, 7)', {'x': 8}, False),
     ('x in (5, 6, 7, y)', {'x': 99, 'y': 99}, True),
@@ -118,15 +119,12 @@ def test_missing_vars_raises_exception(s, context):
         boolrule.test(context)
 
 
-# malformed_queries = [
-#     # missing variable 'foo', should produce exception
-#     ('"foo" == "bar"', {}),
-#     ('foo is "bar"', {'foo': 'bar'}),
-#     # TODO unbalanced parentheses do not raise a parse error, investigate nestedExpr...
-#     # ('foo = "bar" or (', {'foo': 'bar'}),
-#     # ('5 > 4)', {}),
-# ]
-# for query in malformed_queries:
-#     with self.assertRaises(ParseException):
-#         rule = BoolRule(query[0])
-#         rule.test(query[1])
+@pytest.mark.parametrize('s', [
+    # unbalanced brackets
+    ('5 > 4)',),
+    # ambiguous list
+    ('1=1 and 2 in (1, 3 = 3)',),
+])
+def test_malformed_queries_raises_exception(s):
+    with pytest.raises(Exception):
+        boolrule = BoolRule(s)
