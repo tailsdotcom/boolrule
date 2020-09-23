@@ -1,18 +1,37 @@
 # -*- coding: utf-8 -*-
-
-from pyparsing import CaselessLiteral, Word, delimitedList, Optional, \
-    Combine, Group, alphas, nums, alphanums, ParseException, Forward, oneOf, \
-    quotedString, ZeroOrMore, Keyword, ParseResults, removeQuotes, Suppress
+from typing import List, Any
+from pyparsing import (  # type: ignore
+    CaselessLiteral,
+    Word,
+    delimitedList,
+    Optional,
+    Combine,
+    Group,
+    alphas,
+    nums,
+    alphanums,
+    Forward,
+    oneOf,
+    quotedString,
+    ZeroOrMore,
+    Keyword,
+    ParseResults,
+    removeQuotes,
+    Suppress,
+)
 
 
 class SubstituteVal(object):
     """
     Represents a token that will later be replaced by a context value.
     """
+
     def __init__(self, t):
+        # type: (List[Any]) -> None
         self._path = t[0]
 
     def get_val(self, context):
+        # type: (Any) -> Any
         if not context:
             raise MissingVariableException(
                 'context missing or empty'
@@ -32,6 +51,7 @@ class SubstituteVal(object):
         return val
 
     def __repr__(self):
+        # type: () -> str
         return 'SubstituteVal(%s)' % self._path
 
 
@@ -84,7 +104,6 @@ propertyVal = (
     simpleVals
     | (lparen + Group(delimitedList(simpleVals)) + rparen)
 )
-
 boolExpression = Forward()
 boolCondition = Group(
     (Group(propertyVal)('lval') + binaryOp + Group(propertyVal)('rval'))
@@ -104,16 +123,18 @@ class BoolRule(object):
                  instantiate a lot of rules and only end up evaluating a
                  small handful.
     """
+
     _compiled = False
-    _tokens = None
-    _query = None
+    _tokens = []  # type: List[Any]
 
     def __init__(self, query, lazy=False):
+        # type: (str, bool) -> None
         self._query = query
         if not lazy:
             self._compile()
 
     def test(self, context=None):
+        # type: (Any) -> bool
         """
         Test the expression against the given context and return the result.
 
@@ -128,9 +149,11 @@ class BoolRule(object):
         return self._test_tokens(self._tokens, context)
 
     def _is_match_all(self):
+        # type: () -> bool
         return True if self._query == '*' else False
 
     def _compile(self):
+        # type: () -> None
         if not self._compiled:
 
             # special case match-all query
@@ -141,6 +164,7 @@ class BoolRule(object):
             self._compiled = True
 
     def _expand_val(self, val, context):
+        # type: (Any, Any) -> Any
         if type(val) == list:
             val = [self._expand_val(v, context) for v in val]
 
@@ -154,6 +178,7 @@ class BoolRule(object):
         return val
 
     def _test_tokens(self, tokens, context):
+        # type: (List[Any], Any) -> bool
         passed = False
 
         for token in tokens:

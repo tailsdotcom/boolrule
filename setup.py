@@ -19,7 +19,7 @@ test_requirements = [
 
 setup(
     name='boolrule',
-    version='0.3.1',
+    version='0.3.2',
     description="Simple boolean expression evaluation engine",
     long_description=readme + '\n\n' + history,
     author="Steve Webster",
@@ -43,9 +43,9 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Text Processing :: General',
     ],
     setup_requires=['pytest-runner'],
