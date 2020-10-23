@@ -1,8 +1,9 @@
 # Config file for automatic testing at travis-ci.org
 
+dist: focal
 language: python
 python:
-  - 3.9
+  - 3.9-dev
   - 3.8
   - 3.7
   - 3.6
