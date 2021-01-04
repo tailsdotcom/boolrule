@@ -29,6 +29,12 @@ from boolrule import BoolRule, MissingVariableException
     ('1 ≠ 2', True),
     ('1 ≠ 1', False),
     ('2 ≠ true', True),
+    ('6 ∣ 12', True),
+    ('6 ∣ 13', False),
+    ('6 | 12', True),
+    ('6 | 13', False),
+    ('6 ∤ 12', False),
+    ('6 ∤ 13', True),
 ])
 def test_simple_comparisons(s, expected):
     boolrule = BoolRule(s)
