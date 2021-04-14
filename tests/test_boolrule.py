@@ -55,6 +55,15 @@ def test_nested_logical_combinations(s, expected):
 
 
 @pytest.mark.parametrize('s,context,expected', [
+    ('foo', {'foo': True}, True),
+    ('foo', {'foo': False}, False),
+    ('foo', {'foo': 'nope'}, False),
+    ('foo or bar', {'foo': False, 'bar': True}, True),
+    ('foo or bar', {'foo': True, 'bar': False}, True),
+    ('foo or bar', {'foo': False, 'bar': False}, False),
+    ('foo and bar', {'foo': True, 'bar': False}, False),
+    ('foo and bar', {'foo': True, 'bar': True}, True),
+    ('(1=0) or (1=1)', {}, True),
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 20}, True),
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 9}, False),
     (

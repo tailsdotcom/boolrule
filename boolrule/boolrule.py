@@ -108,6 +108,7 @@ boolExpression = Forward()
 boolCondition = Group(
     (Group(propertyVal)('lval') + binaryOp + Group(propertyVal)('rval'))
     | (lparen + boolExpression + rparen)
+    | propertyVal
 )
 boolExpression << boolCondition + ZeroOrMore((and_ | or_) + boolExpression)
 
@@ -187,10 +188,13 @@ class BoolRule(object):
                     return True
                 elif token == 'and' and not passed:
                     return False
+                elif isinstance(token, SubstituteVal):
+                    passed = self._expand_val(token, context) is True
                 continue
 
             if not token.getName():
-                return self._test_tokens(token, context)
+                passed = self._test_tokens(token, context)
+                continue
 
             items = token.asDict()
 
