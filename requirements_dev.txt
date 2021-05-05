@@ -4,5 +4,5 @@ flake8==3.9.1
 tox==3.23.0
 coverage==5.5
 Sphinx==3.5.4; python_version >= '3'
-pytest==6.2.3; python_version >= '3'
+pytest==6.2.4; python_version >= '3'
 pytest==4.6.11; python_version < '3'
