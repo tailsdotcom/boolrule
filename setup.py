@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from setuptools import setup
 
 with open('README.rst') as readme_file:
@@ -48,7 +45,4 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Topic :: Text Processing :: General',
     ],
-    setup_requires=['pytest-runner'],
-    test_suite='tests',
-    tests_require=test_requirements
 )
