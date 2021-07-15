@@ -5,17 +5,11 @@ boolrule
 .. image:: https://img.shields.io/pypi/v/boolrule.svg
         :target: https://pypi.python.org/pypi/boolrule
 
-.. image:: https://img.shields.io/travis/tailsdotcom/boolrule/master.svg
-        :target: https://travis-ci.org/tailsdotcom/boolrule
+.. image:: https://github.com/tailsdotcom/boolrule/actions/workflows/ci.yml/badge.svg
+        :target: https://github.com/tailsdotcom/boolrule/actions/workflows/ci.yml
 
 .. image:: https://readthedocs.org/projects/boolrule/badge/?version=latest
         :target: https://boolrule.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-.. image:: https://api.dependabot.com/badges/status?host=github&repo=tailsdotcom/boolrule
-     :target: https://dependabot.com
-     :alt: Dependencies
-
 
 Simple boolean expression evaluation engine.
 
