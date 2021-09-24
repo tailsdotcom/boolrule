@@ -2,7 +2,14 @@
 History
 =======
 
+0.3.4 (2021-09-24)
+==================
+
+* Fixed error caused by early return when evaluating nested expressions.
+
+
 0.3.3 (2021-07-15)
+==================
 
 * Upgrade dependencies.
 
