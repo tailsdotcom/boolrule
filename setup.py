@@ -16,9 +16,10 @@ test_requirements = [
 
 setup(
     name='boolrule',
-    version='0.3.3',
+    version='0.3.4',
     description="Simple boolean expression evaluation engine",
     long_description=readme + '\n\n' + history,
+    long_description_content_type='text/x-rst',
     author="Steve Webster",
     author_email='spjwebster@gmail.com',
     url='https://github.com/tailsdotcom/boolrule',
