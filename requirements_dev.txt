@@ -1,4 +1,4 @@
-pip==21.3.1; python_version >= '3'
+pip==22.3; python_version >= '3'
 pip==20.3.4; python_version < '3'
 flake8==4.0.1; python_version >= '3'
 flake8==3.9.2; python_version < '3'
