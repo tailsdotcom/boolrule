@@ -11,3 +11,4 @@ Contributors
 ------------
 
 * Barnaby Shearer <b@zi.is>
+* Mauro Canetti <mauro.canetti@gmail.com>

@@ -79,10 +79,11 @@ Set operators
 Operator                 Description               Example
 =======================  ========================  =========================
 ``in``, ``∈``            Is a member of            ``foo in ("a","b","c")``
-``notin``, ``∉``         Is not a member of        ``foo not in ("a","b")``
-``⊆``                    Is a subset of            ``foo ⊆ ("a", "b", "c")``
-``⊇``                    Is a superset of          ``foo ⊇ ("a", "b")``
-``∩``                    Intersects                ``foo ∩ ("a", "b")``
+``notin``, ``∉``         Is not a member of        ``foo notin ("a","b")``
+``⊆``                    Is a subset of            ``("a", "b") ⊆ ("a", "b", "c")``
+``⊇``                    Is a superset of          ``("a", "b", "c") ⊇ ("a", "b")``
+``∩``                    Intersects                ``("a", "b") ∩ ("a", "b", "c")``
+``not∩``                 Does not intersect        ``("a", "b") not∩ ("c", "d")``
 =======================  ========================  =========================
 
 

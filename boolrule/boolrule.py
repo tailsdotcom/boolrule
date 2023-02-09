@@ -69,7 +69,7 @@ rparen = Suppress(')')
 
 binaryOp = oneOf(
     "= == != < > >= <= eq ne lt le gt ge in notin is isnot "
-    "≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩", caseless=True
+    "≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩ not∩", caseless=True
 )('operator')
 
 E = CaselessLiteral("E")
@@ -225,6 +225,8 @@ class BoolRule(object):
                 passed = all((False for x in rval if x not in lval))
             elif operator == '∩':
                 passed = any((True for x in lval if x in rval))
+            elif operator == 'not∩':
+                passed = not any((True for x in lval if x in rval))
             else:
                 raise UnknownOperatorException(
                     "Unknown operator '{}'".format(operator)
