@@ -53,6 +53,7 @@ def test_nested_logical_combinations(s, expected):
     boolrule = BoolRule(s)
     assert boolrule.test() == expected
 
+
 @pytest.mark.parametrize('s,expected', [
     ('(1=1 or 2=2) and (3 = 3)', True),
     ('(1=1 or 2=2) and (3 = 4)', False),
@@ -60,6 +61,7 @@ def test_nested_logical_combinations(s, expected):
 def test_nested_logical_combinations_and_error(s, expected):
     boolrule = BoolRule(s)
     assert boolrule.test() == expected
+
 
 @pytest.mark.parametrize('s,context,expected', [
     ('foo = "bar" AND baz > 10', {'foo': 'bar', 'baz': 20}, True),
@@ -114,6 +116,17 @@ def test_subset(s, expected):
     ('(1, 2, 3) ∩ (4, 5, 6)', False),
 ])
 def test_intersects(s, expected):
+    boolrule = BoolRule(s)
+    assert boolrule.test() == expected
+
+
+@pytest.mark.parametrize('s,expected', [
+    ('(4) not∩ (1, 2, 3)', True),
+    ('(1, 2) not∩ (4, 5, 6)', True),
+    ('(3) not∩ (3, 4, 5)', False),
+    ('(3, 4) not∩ (3, 4, 5)', False),
+])
+def test_not_intersects(s, expected):
     boolrule = BoolRule(s)
     assert boolrule.test() == expected
 

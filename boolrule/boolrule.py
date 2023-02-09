@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from typing import List, Any
-from pyparsing import (  # type: ignore
+from typing import List, Any  # noqa
+from pyparsing import (
     CaselessLiteral,
     Word,
     delimitedList,
@@ -69,7 +69,7 @@ rparen = Suppress(')')
 
 binaryOp = oneOf(
     "= == != < > >= <= eq ne lt le gt ge in notin is isnot "
-    "≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩", caseless=True
+    "≠ ≤ ≥ ∈ ∉ ⊆ ⊇ ∩ not∩", caseless=True
 )('operator')
 
 E = CaselessLiteral("E")
@@ -160,7 +160,9 @@ class BoolRule(object):
             if self._is_match_all():
                 return
 
-            self._tokens = boolExpression.parseString(self._query, True)
+            self._tokens = (
+                boolExpression.parseString(self._query, True)  # type: ignore
+            )
             self._compiled = True
 
     def _expand_val(self, val, context):
@@ -189,8 +191,8 @@ class BoolRule(object):
                     return False
                 continue
 
-            if not token.getName():
-                passed = self._test_tokens(token, context)
+            if not token.getName():  # type: ignore
+                passed = self._test_tokens(token, context)  # type: ignore
                 continue
 
             items = token.asDict()
@@ -225,6 +227,8 @@ class BoolRule(object):
                 passed = all((False for x in rval if x not in lval))
             elif operator == '∩':
                 passed = any((True for x in lval if x in rval))
+            elif operator == 'not∩':
+                passed = not any((True for x in lval if x in rval))
             else:
                 raise UnknownOperatorException(
                     "Unknown operator '{}'".format(operator)
